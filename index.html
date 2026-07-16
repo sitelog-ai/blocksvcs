@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block Management Services — Construction Project Management &amp; Field Software</title>
+<meta name="description" content="Block Management Services LLC is a Florida construction project management and software company. Founded by a builder with 30 years in the field, we manage residential and commercial projects and build field software for construction professionals — including SiteLog AI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%2316181D'/><rect x='20' y='52' width='26' height='28' fill='%23E87722'/><rect x='52' y='34' width='28' height='46' fill='%23F5F6F8'/><rect x='20' y='20' width='26' height='26' fill='%23F5F6F8'/></svg>">
+<style>
+  :root{
+    --paper:#FAFAF7;
+    --ink:#16181D;
+    --ink2:#4A4F58;
+    --line:#E4E2DB;
+    --orange:#E87722;
+    --steel:#2E6BA8;
+    --card:#FFFFFF;
+    --dark:#0C0D10;
+    --yellow:#C8E829;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(250,250,247,.9);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.3px;}
+  .brand .mark{
+    width:34px;height:34px;border-radius:8px;background:var(--ink);flex-shrink:0;
+    display:grid;place-items:center;
+  }
+  .brand .mark svg{width:20px;height:20px;}
+  .brand .nm{font-size:16px;line-height:1.2;}
+  .brand .nm small{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.8px;color:var(--ink2);text-transform:uppercase;}
+  .nav-links{display:flex;gap:26px;font-size:15px;font-weight:600;color:var(--ink2);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    background:var(--ink);color:#fff;font-weight:700;font-size:14.5px;
+    padding:10px 20px;border-radius:10px;white-space:nowrap;
+  }
+  .nav-cta:hover{background:#000;}
+  @media(max-width:800px){.nav-links{display:none;}}
+
+  /* HERO */
+  .hero{
+    padding:88px 0 72px;position:relative;
+    background:
+      linear-gradient(rgba(250,250,247,0) 60%, var(--paper)),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(46,107,168,.07) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(46,107,168,.07) 40px);
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;
+    letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;
+  }
+  .kicker::before{content:"";width:26px;height:3px;background:var(--orange);}
+  h1{font-size:clamp(34px,5vw,56px);line-height:1.08;font-weight:900;letter-spacing:-1px;max-width:17em;}
+  h1 .acc{color:var(--orange);}
+  .hero p.sub{color:var(--ink2);font-size:clamp(16px,2vw,19px);margin:22px 0 30px;max-width:36em;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;font-weight:700;font-size:16px;padding:14px 28px;border-radius:12px;
+  }
+  .btn.solid{background:var(--ink);color:#fff;}
+  .btn.solid:hover{background:#000;}
+  .btn.line{border:1.5px solid var(--line);background:var(--card);}
+  .btn.line:hover{border-color:var(--ink2);}
+  .hero-facts{
+    display:flex;gap:36px;flex-wrap:wrap;margin-top:48px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .fact .n{font-size:26px;font-weight:900;letter-spacing:-.5px;}
+  .fact .l{color:var(--ink2);font-size:13.5px;}
+
+  /* SECTIONS */
+  section{padding:80px 0;}
+  .sec-head{max-width:640px;margin-bottom:44px;}
+  h2{font-size:clamp(26px,3.4vw,38px);font-weight:900;letter-spacing:-.6px;line-height:1.15;}
+  .sec-head p{color:var(--ink2);font-size:17px;margin-top:12px;}
+
+  /* SERVICES */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .svc{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;
+    position:relative;overflow:hidden;
+  }
+  .svc::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--orange);}
+  .svc:nth-child(2)::before{background:var(--steel);}
+  .svc:nth-child(3)::before{background:var(--ink);}
+  .svc .ico{
+    width:44px;height:44px;border-radius:12px;background:var(--paper);border:1px solid var(--line);
+    display:grid;place-items:center;color:var(--ink);margin-bottom:18px;
+  }
+  .svc .ico svg{width:22px;height:22px;}
+  .svc h3{font-size:19px;font-weight:800;margin-bottom:10px;}
+  .svc p{color:var(--ink2);font-size:15px;}
+  @media(max-width:860px){.svc-grid{grid-template-columns:1fr;}}
+
+  /* SITELOG */
+  .sitelog{
+    background:var(--dark);color:#F5F5F5;border-radius:28px;overflow:hidden;
+    display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:24px;
+  }
+  .sl-copy{padding:56px 20px 56px 52px;}
+  .sl-badge{
+    display:inline-block;background:rgba(200,232,41,.12);color:var(--yellow);
+    font-size:11.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .sl-copy .slname{font-size:clamp(26px,3.2vw,36px);font-weight:900;letter-spacing:-.5px;line-height:1.1;}
+  .sl-copy .slname .ai{color:var(--yellow);}
+  .sl-copy p{color:#A9ADB6;font-size:16.5px;margin:16px 0 24px;max-width:30em;}
+  .sl-feats{list-style:none;margin-bottom:30px;}
+  .sl-feats li{display:flex;gap:10px;padding:5px 0;font-size:15px;color:#E8E9EC;align-items:baseline;}
+  .sl-feats li::before{content:"—";color:var(--yellow);font-weight:900;}
+  .btn.yellow{background:var(--yellow);color:#111;}
+  .btn.yellow:hover{filter:brightness(1.07);}
+  .sl-note{color:#A9ADB6;font-size:13px;margin-top:14px;}
+  .sl-visual{
+    align-self:stretch;display:flex;align-items:flex-end;justify-content:center;
+    padding:48px 40px 0;
+    background:radial-gradient(420px 320px at 50% 100%, rgba(200,232,41,.14), transparent 70%);
+  }
+  .sl-visual img{
+    width:250px;border-radius:32px 32px 0 0;border:8px solid #17181c;border-bottom:none;
+    box-shadow:0 -10px 60px rgba(0,0,0,.55);display:block;
+  }
+  @media(max-width:880px){
+    .sitelog{grid-template-columns:1fr;}
+    .sl-copy{padding:40px 28px 8px;}
+    .sl-visual{padding-top:24px;}
+  }
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .about-card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;
+  }
+  .about-card h3{font-size:17px;font-weight:800;margin-bottom:14px;color:var(--ink);}
+  .cred{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink2);align-items:baseline;}
+  .cred:first-of-type{border-top:none;padding-top:0;}
+  .cred b{color:var(--ink);}
+  .cred::before{content:"■";color:var(--orange);font-size:9px;}
+  .about p{color:var(--ink2);font-size:16.5px;margin-bottom:14px;}
+  .about p b{color:var(--ink);}
+  @media(max-width:860px){.about{grid-template-columns:1fr;gap:32px;}}
+
+  /* CONTACT */
+  .contact{
+    background:var(--ink);color:#fff;border-radius:28px;padding:56px 48px;
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+  }
+  .contact h2{color:#fff;}
+  .contact p{color:#B9BCC4;margin-top:10px;font-size:16.5px;max-width:28em;}
+  .c-lines{display:flex;flex-direction:column;gap:14px;}
+  .c-line{
+    display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 22px;
+    font-weight:700;font-size:17px;
+  }
+  .c-line:hover{background:rgba(255,255,255,.1);}
+  .c-line svg{width:20px;height:20px;color:var(--orange);flex-shrink:0;}
+  @media(max-width:760px){.contact{padding:40px 28px;}}
+
+  footer{border-top:1px solid var(--line);padding:32px 0;margin-top:8px;}
+  .foot{
+    max-width:var(--maxw);margin:0 auto;padding:0 24px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    color:var(--ink2);font-size:14px;
+  }
+  .foot a{font-weight:600;}
+  .foot a:hover{color:var(--ink);}
+
+  @media(max-width:600px){
+    .hero{padding:56px 0 48px;}
+    section{padding:56px 0;}
+    .hero-facts{gap:22px;margin-top:36px;}
+    .fact .n{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="mark"><svg viewBox="0 0 100 100"><rect x="16" y="52" width="28" height="32" fill="#E87722"/><rect x="52" y="30" width="32" height="54" fill="#F5F6F8"/><rect x="16" y="16" width="28" height="28" fill="#F5F6F8"/></svg></span>
+      <span class="nm">Block Management Services<small>Construction · Software · AI</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#software">Software</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Builders first. Technologists second.</span>
+    <h1>We manage construction projects — and build the <span class="acc">software</span> that runs them.</h1>
+    <p class="sub">Block Management Services is a construction project management and software company founded on 30 years in the field — from the trades to running $20M in active luxury residential work. We know the job because we've done the job.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#services">What we do</a>
+      <a class="btn line" href="#software">Our software</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n">30 yrs</div><div class="l">In construction — trades to executive</div></div>
+      <div class="fact"><div class="n">$20M</div><div class="l">Active luxury residential work under management</div></div>
+      <div class="fact"><div class="n">Builder</div><div class="l">Florida Certified Building Contractor</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What we do</h2>
+      <p>Three practices, one point of view: construction runs better when the people managing it — and the tools running it — come from the field.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8-7-3.8z"/></svg></div>
+        <h3>Construction Project Management</h3>
+        <p>Hands-on management of residential and commercial construction — scheduling, subcontractor coordination, owner representation, and quality control. Currently overseeing $20M in active luxury residential projects.</p>
+      </div>
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm-5 20a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm5-4H7V4h10v13z"/></svg></div>
+        <h3>Construction Software</h3>
+        <p>We design and build field-first mobile apps for construction professionals — tools shaped by jobsite reality, not office theory. Creator of SiteLog AI, a field documentation app for superintendents, subcontractors, and project managers.</p>
+      </div>
+      <div class="svc">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2zM9 20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg></div>
+        <h3>AI Consulting for Contractors</h3>
+        <p>Practical AI adoption for construction businesses — faster bids, better documentation, contract risk review — taught in plain language, built around how construction actually works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARE / SITELOG -->
+<section id="software" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="sitelog">
+      <div class="sl-copy">
+        <span class="sl-badge">Our flagship app</span>
+        <div class="slname">SITELOG <span class="ai">AI</span></div>
+        <p>Field documentation for construction pros. Talk, snap, or type — every log is transcribed, sorted, and saved to a permanent, searchable project record. Daily reports in one tap. Dispute-ready documentation for the life of the project.</p>
+        <ul class="sl-feats">
+          <li>Voice notes transcribed live as you speak</li>
+          <li>Up to 5 photos per log, kept forever</li>
+          <li>One-tap daily, weekly &amp; category reports</li>
+          <li>The Vault — search your whole project history</li>
+        </ul>
+        <a class="btn yellow" href="https://sitelog-ai.com" target="_blank" rel="noopener">Visit sitelog-ai.com →</a>
+        <p class="sl-note">Coming soon to the App Store.</p>
+      </div>
+      <div class="sl-visual">
+        <img src="https://sitelog-ai.com/screenshots/hero.png" alt="SiteLog AI capture screen" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>About Block Management Services</h2>
+    </div>
+    <div class="about">
+      <div>
+        <p><b>Founded by Louis Armanini</b>, a builder with 30 years in construction — starting in the trades, running field crews, and managing residential and commercial projects from the ground up to the executive suite.</p>
+        <p>Block Management Services exists because construction's biggest losses rarely come from bad building — they come from slow bids, thin documentation, and paperwork that eats the day. We attack that from both sides: managing projects directly, and building the software and AI workflows that make field teams faster.</p>
+        <p>When we recommend a tool, it's because we've used it on real construction problems. When we build one, it's because the field needed it and nobody had built it right.</p>
+      </div>
+      <div class="about-card">
+        <h3>Credentials &amp; track record</h3>
+        <div class="cred"><span><b>30 years</b> in construction — trades, telecom, residential &amp; commercial project management</span></div>
+        <div class="cred"><span><b>Florida Certified Building Contractor</b></span></div>
+        <div class="cred"><span><b>$20M</b> in active luxury residential construction under management</span></div>
+        <div class="cred"><span><b>Software publisher</b> — creator of SiteLog AI field documentation platform</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <h2>Let's talk.</h2>
+        <p>Project management, software, or getting your team started with AI — reach out and you'll hear back from a builder, not a bot.</p>
+      </div>
+      <div class="c-lines">
+        <a class="c-line" href="tel:+17077664246"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1l-2.2 2.2z"/></svg>707-766-4246</a>
+        <a class="c-line" href="mailto:info@blocksvcs.com"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>info@blocksvcs.com</a>
+        <span class="c-line" style="cursor:default;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Florida, USA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <span>© 2026 Block Management Services LLC · Florida, USA · blocksvcs.com · All rights reserved.</span>
+    <span><a href="https://sitelog-ai.com" target="_blank" rel="noopener">SiteLog AI</a> is a product of Block Management Services LLC.</span>
+  </div>
+</footer>
+
+</body>
+</html>
