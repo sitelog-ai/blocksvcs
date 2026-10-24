@@ -144,6 +144,32 @@
     .sl-visual{padding-top:24px;}
   }
 
+  /* TRAINING */
+  .training{
+    background:var(--card);border:1px solid var(--line);border-radius:28px;padding:52px;
+    display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;
+  }
+  .tr-badge{
+    display:inline-block;background:rgba(232,119,34,.12);color:var(--orange);
+    font-size:11.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;margin-bottom:18px;
+  }
+  .training h2{margin-bottom:14px;}
+  .training p{color:var(--ink2);font-size:16.5px;margin-bottom:14px;}
+  .tr-meta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 26px;}
+  .tr-meta span{
+    border:1px solid var(--line);background:var(--paper);border-radius:999px;
+    padding:6px 14px;font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .tr-list h3{font-size:17px;font-weight:800;margin-bottom:12px;}
+  .tr-list ul{list-style:none;margin-bottom:22px;}
+  .tr-list li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink2);align-items:baseline;}
+  .tr-list li:first-child{border-top:none;}
+  .tr-list li::before{content:"■";color:var(--orange);font-size:9px;}
+  .tr-list li b{color:var(--ink);}
+  .tr-note{font-size:13.5px !important;}
+  @media(max-width:860px){.training{grid-template-columns:1fr;padding:36px 26px;gap:28px;}}
+
   /* ABOUT */
   .about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
   .about-card{
@@ -203,6 +229,7 @@
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#software">Software</a>
+      <a href="#training">Training</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -219,6 +246,7 @@
     <div class="cta-row">
       <a class="btn solid" href="#services">What we do</a>
       <a class="btn line" href="#software">Our software</a>
+      <a class="btn line" href="#training">AI training for contractors</a>
     </div>
     <div class="hero-facts">
       <div class="fact"><div class="n">30 yrs</div><div class="l">In construction — trades to executive</div></div>
@@ -248,8 +276,8 @@
       </div>
       <div class="svc">
         <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2zM9 20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg></div>
-        <h3>AI Consulting for Contractors</h3>
-        <p>Practical AI adoption for construction businesses — faster bids, better documentation, contract risk review — taught in plain language, built around how construction actually works.</p>
+        <h3>AI Training for Contractors</h3>
+        <p>Live, hands-on AI training for construction professionals — contract review, RFIs, pay apps, and tough-job correspondence — taught in plain language, built around how construction actually works. <a href="#training" style="color:var(--orange);font-weight:700;">See the class →</a></p>
       </div>
     </div>
   </div>
@@ -274,6 +302,39 @@
       </div>
       <div class="sl-visual">
         <img src="https://sitelog-ai.com/screenshots/hero.png" alt="SiteLog AI capture screen" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section id="training" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="training">
+      <div>
+        <span class="tr-badge">AI training for contractors</span>
+        <h2>AI for Construction PMs</h2>
+        <p>A practical, live class on using ChatGPT and Claude for the paperwork that keeps project managers in the trailer — contract admin, subcontractor issues, and tough jobs. No hype, no coding. Just workflows you can use on Monday morning.</p>
+        <div class="tr-meta">
+          <span>Live on Zoom</span><span>90 minutes</span><span>Hands-on practice</span><span>Recorded</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn solid" href="mailto:info@blocksvcs.com?subject=AI%20for%20Construction%20PMs%20class">Reserve a seat</a>
+          <a class="btn line" href="https://calendar.app.google/ttZMwyCf2iFQ4QNYA" target="_blank" rel="noopener">Book a private team session</a>
+        </div>
+        <p class="tr-note" style="margin-top:18px;">Private team sessions: 5 to 10 people, $200 per seat. Certificate of completion emailed after class. Eligible for 1.5 PDUs (self-reported; not endorsed by PMI).</p>
+      </div>
+      <div class="tr-list">
+        <h3>What you'll learn</h3>
+        <ul>
+          <li><span><b>Contract review</b> — find every deadline and notice requirement in a subcontract</span></li>
+          <li><span><b>Everyday paperwork</b> — RFIs, submittal checklists, and owner weekly reports</span></li>
+          <li><span><b>Tough jobs</b> — change-order timelines and firm-but-calm notices to cure</span></li>
+          <li><span><b>Pay apps</b> — check a pay application against the SOV and contract, line by line</span></li>
+          <li><span><b>Check the AI</b> — a 5-point answer check so nothing goes out unverified</span></li>
+          <li><span><b>Protect the job</b> — set up a private AI project for each job with privacy guardrails</span></li>
+        </ul>
+        <p class="tr-note"><b>AI drafts. You sign.</b> Every attendee leaves with a two-page cheat sheet that works in free ChatGPT or Claude.</p>
       </div>
     </div>
   </div>
